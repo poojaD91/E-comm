@@ -1,0 +1,40 @@
+package com.example.productservice.authenticationservice;
+
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import javax.annotation.PostConstruct;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+
+import com.example.productservice.authenticationservice.model.User;
+import com.example.productservice.authenticationservice.repository.UserRepo;
+
+
+@SpringBootApplication
+public class AuthenticationServiceApplication {
+	
+	  @Autowired
+	    private UserRepo repository;
+
+	    @PostConstruct
+	    public void initUsers() {
+	        List<User> users = Stream.of(
+	                new User("gamestore", "password"),
+	                new User("user1", "pwd1"),
+	                new User("user2", "pwd2"),
+	                new User("user3", "pwd3")
+	        ).collect(Collectors.toList());
+	        repository.saveAll(users);
+	    }
+
+
+	public static void main(String[] args) {
+		SpringApplication.run(AuthenticationServiceApplication.class, args);
+	}
+
+}

@@ -1,0 +1,11 @@
+package com.example.productservice.authenticationservice.model;
+
+
+
+public class User {
+	
+	int id;
+	String userName;
+	String password;
+
+}

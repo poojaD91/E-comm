@@ -1,0 +1,20 @@
+package com.example.demo.productservice.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+
+
+import com.example.demo.productservice.model.ProductFanGear;
+
+@Repository
+public interface ProductFanGearRepo extends JpaRepository<ProductFanGear, Integer> {
+
+	@Query("select s from gear_details s where s.game_id = :gameId")
+	List<ProductFanGear> findByGameId(@Param("gameId") int gameId);
+	
+}

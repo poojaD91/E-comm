@@ -1,0 +1,5 @@
+package com.example.productservice.authenticationservice.model;
+
+public class JwtResponse {
+
+}

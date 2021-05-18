@@ -1,0 +1,24 @@
+server:
+  port: 9595
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+          
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+                  
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - "*"

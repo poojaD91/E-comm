@@ -1,0 +1,27 @@
+package com.example.productservice.authenticationservice.model;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import com.example.customerservice.model.Customer;
+
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.FieldDefaults;
+
+@FieldDefaults(level = AccessLevel.PRIVATE)
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+
+@Entity
+@Table(name="cutomer_details")
+public class User {
+	
+	int id;
+	String userName;
+	String password;
+
+}

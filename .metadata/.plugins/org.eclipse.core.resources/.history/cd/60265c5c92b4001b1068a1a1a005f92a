@@ -1,0 +1,42 @@
+package com.example.productservice.authenticationservice.service;
+
+import java.util.ArrayList;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+
+import com.example.productservice.authenticationservice.model.User;
+import com.example.productservice.authenticationservice.repository.UserRepo;
+
+@Service
+public class CustomeUserDetailsService implements UserDetailsService {
+	
+	@Autowired
+	private UserRepo userRepo;
+	
+
+	
+	 @Override
+	    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+	        User user = userRepo.findByUserName(username);
+	        return new org.springframework.security.core.userdetails.User(user.getUserName(), user.getPassword(), new ArrayList<>());
+	    }
+	}
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		UserDetails ud=null;
+		try {
+		User u=userRepo.findByUserName(username);
+		ud=new org.springframework.security.core.userdetails.User(u.getUserName(), u.getPassword(), new ArrayList<>());
+		//return new org.springframework.security.core.userdetails.User(u.getUserName(), u.getPassword(), new ArrayList<>());}
+		}
+		catch(Exception e) {
+			new RuntimeException(e.getMessage());
+		}		
+		return ud;
+	}
+
+}

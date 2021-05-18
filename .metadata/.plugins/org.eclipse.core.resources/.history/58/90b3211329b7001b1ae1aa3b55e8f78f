@@ -1,0 +1,19 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+server:
+  port: 6061
+spring:
+  application:
+    name: authentication-service
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: root
+    url: jdbc:mysql://127.0.0.1:3306/gamestore
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true

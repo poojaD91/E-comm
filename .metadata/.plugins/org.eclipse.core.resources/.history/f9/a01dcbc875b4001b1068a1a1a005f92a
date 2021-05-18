@@ -1,0 +1,7 @@
+package com.example.productservice.authenticationservice.service;
+
+import org.springframework.security.core.userdetails.UserDetailsService;
+
+public class CustomeUserDetailsService implements UserDetailsService {
+
+}

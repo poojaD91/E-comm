@@ -1,0 +1,25 @@
+package com.example.productservice.authenticationservice;
+
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import javax.annotation.PostConstruct;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+
+import com.example.productservice.authenticationservice.model.User;
+import com.example.productservice.authenticationservice.repository.UserRepo;
+
+
+@SpringBootApplication
+public class AuthenticationServiceApplication {
+	
+	public static void main(String[] args) {
+		SpringApplication.run(AuthenticationServiceApplication.class, args);
+	}
+
+}

@@ -1,0 +1,5 @@
+package com.example.productservice.authenticationservice.service;
+
+public class CustomeUserDetailsService {
+
+}

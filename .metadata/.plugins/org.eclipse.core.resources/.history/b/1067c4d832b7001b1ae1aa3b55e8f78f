@@ -1,0 +1,15 @@
+server:
+  port: 7070
+
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: authenticateModule
+        uri: http://localhost:9091/
+        predicates:
+        - Path=/api/v1/**
+      - id: productModule
+        uri: http://localhost:9090/
+        predicates:
+        - Path=/api/v1/**

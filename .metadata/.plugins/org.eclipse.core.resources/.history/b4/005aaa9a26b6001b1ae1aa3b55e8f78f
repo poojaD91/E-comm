@@ -1,0 +1,20 @@
+package com.example.demo.productservice.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.example.demo.productservice.model.ProductFanGear;
+
+@Repository
+public interface ProductFanGearRepo extends JpaRepository<ProductFanGear, Integer> {
+
+	  @Query(value = "select gear_details where game_id = :gameId")
+		@Modifying
+		@Transactional
+		public int updateMail(@Param("srchId") int id,@Param("gameId") String updateMail);
+	
+}
